@@ -1,0 +1,20 @@
+This tool adds an 'auto' command to the raco tool from Racket. Auto will run a file by requiring it and install a compile-handler that will automatically keep dependancies compiled.
+
+something.rkt:
+
+    #lang racket
+    (require "z.rkt")
+
+$ ls
+z.rkt something.rkt
+$ raco auto something.rkt
+# z.rkt will be compiled when it is loaded
+$ ls
+z.rkt something.rkt compiled
+$ ls compiled
+z_rkt.dep z_rkt.zo
+
+A new zo will be created in the following cases
+ * no zo exists
+ * source .rkt file is newer than the zo
+ * zo fails to load (usually because it was compiled by an older version of racket)
