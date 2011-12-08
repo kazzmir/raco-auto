@@ -1,5 +1,17 @@
 This tool adds an 'auto' command to the raco tool from Racket. Auto will run a file by requiring it and install a compile-handler that will automatically keep dependancies compiled.
 
+* Install
+
+ If you have 'raco git' (https://github.com/samth/raco-git) installed then use
+   $ raco git --github kazzmir raco-auto
+
+ Otherwise check out from git and link it up using raco.
+   $ git clone git://github.com/kazzmir/raco-auto.git
+   $ raco link raco-auto
+   $ raco setup raco-auto
+
+* Example
+
 something.rkt:
 
     #lang racket
